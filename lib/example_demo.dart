@@ -202,21 +202,20 @@ class ExampleDemo {
                               controller.addRotateAngle90();
                             },
                           ),
-                          // Container(
-                          //     color: Colors.transparent,
-                          //     padding: const EdgeInsets.symmetric(
-                          //         horizontal: 10, vertical: 10),
-                          //     child: const Text(
-                          //       '旋转右90',
-                          //       style: TextStyle(
-                          //           color: Colors.white, fontSize: 12),
-                          //     )).gestureDetector(
-                          //   onTap: () {
-                          //     print('>> -');
-                          //     controller.reduceRotateAngle90();
-                          //   },
-                          // ),
-                          //------------ 缩放
+                          Container(
+                              color: Colors.transparent,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
+                              child: const Text(
+                                '旋转右90',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              )).gestureDetector(
+                            onTap: () {
+                              print('>> -');
+                              controller.reduceRotateAngle90();
+                            },
+                          ),
                           Container(
                               color: Colors.transparent,
                               padding: const EdgeInsets.symmetric(

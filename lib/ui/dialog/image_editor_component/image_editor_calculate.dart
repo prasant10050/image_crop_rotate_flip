@@ -41,7 +41,7 @@ mixin ImageEditorCalculate {
         centrePoint.dy - box_new_height / 2, box_new_width, box_new_height);
 
     print(
-        '取景器当前rect:${box_rect.toString()}  取景器新的rect:${box_new_rect.toString()}');
+        'viewfinder current rect:${box_rect.toString()}  viewfinder new rect:${box_new_rect.toString()}');
     //计算取景框圈中的图片跟随取景框适配屏幕后的moveX, moveY
     //计算裁剪图rect的offset在底图中的比例，先记录，在底图放大后，就可以反推回去具体位置
     var relative_position_ratioX =
@@ -68,12 +68,12 @@ mixin ImageEditorCalculate {
         clippingRegionRectInBaseMap.width * box_new_size_scale,
         clippingRegionRectInBaseMap.height * box_new_size_scale);
     //然后将新裁剪图移动贴合新取景框,实际就是计算需要挪动的x,y, 基准就是新剪裁的图的中心要对准取景框中心
-    print('裁剪图新的rect:${clippingRegion_new_rect.toString()} ');
+    print('cropping new rect:${clippingRegion_new_rect.toString()} ');
     //计算差值，用于挪动moveX, moveY, 中心点挪去中心点，终点减去始点
     final needMoveWidth = box_new_rect.left - clippingRegion_new_rect.left;
     final needMoveHeight = box_new_rect.top - clippingRegion_new_rect.top;
     print(
-        '需要挪动的距离  needMoveWidth:$needMoveWidth  needMoveHeight:$needMoveHeight');
+        'distance to move needMoveWidth:$needMoveWidth  needMoveHeight:$needMoveHeight');
     //数据拿齐了，可以开始干活
 
     result.boxNewRect = box_new_rect;
@@ -190,7 +190,8 @@ mixin ImageEditorCalculate {
     rotateAngel ??= prop.rotateAngel;
 
     final result = DataUpdateBaseMapResult();
-    //拿到目标编辑状态图的size后可以设置其对应的底图
+    //After getting the size of the target editing state map,
+    // you can set its corresponding base map
     substituteSize?.go((it) {
       //先计算比例
       it = Size(it.width * scaleRatio!, it.height * scaleRatio);
@@ -333,10 +334,8 @@ mixin ImageEditorCalculate {
         //计算替身4个角所对应的内斜边上的高
         if (prop.rotateAngel < 0) {
           //向右旋转
-
         } else if (prop.rotateAngel > 0) {
           //向左旋转
-
         }
         fix_diff_top = MathUtils.getTriangularHeight2(
             boxRect.width, prop.rotateAngel.abs());
@@ -485,8 +484,7 @@ mixin ImageEditorCalculate {
         }
 
         if (MathUtils.insideOrOutsideOfLine2(
-                ssOffset_left, ssOffset_top, boxRect.topLeft,
-                inRight: true) ==
+                ssOffset_left, ssOffset_top, boxRect.topLeft, inRight: true) ==
             -1) {
           //选择框左上角超了
           final height =

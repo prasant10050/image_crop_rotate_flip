@@ -1647,10 +1647,10 @@ class _ImageEditorPlaneState extends State<ImageEditorPlane>
                 limitRect: _limitRect_selectBox,
                 funResult: (resultRect) {
                   _resultRect_selectBox = resultRect;
-                  print('返回${resultRect.toString()}');
-                  _createSamplingTask(); //这行测试调用
+                  print('return${resultRect.toString()}');
+                  _createSamplingTask(); //This line tests the call
                   // setState(() {
-                  //   //暂时收到结果先还原默认框
+                  //  //Temporarily receive the result and restore the default box first
                   //   _selectBoxKey = UniqueKey();
                   // });
                 },

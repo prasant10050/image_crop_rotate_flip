@@ -17,8 +17,8 @@ class ImageUtils {
   ///图片旋转操作
   static Uint8List rotate(Uint8List srcU8, num angle) {
     final sImage = image_lib.decodeImage(srcU8);
-    final rotateImage = image_lib.copyRotate(sImage!, angle);
-    final newU8 = image_lib.writePng(rotateImage) as Uint8List;
+    final rotateImage = image_lib.copyRotate(sImage!, angle: angle);
+    final newU8 = image_lib.encodePng(rotateImage) as Uint8List;
     return newU8;
   }
 }
