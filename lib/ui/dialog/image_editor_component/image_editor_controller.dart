@@ -4,7 +4,7 @@ typedef FunTailorResult = void Function(
     ui.Image? img, ByteData bytedata, Size? size);
 
 class ImageEditorController {
-  final _stream = StreamController<Map>();
+  final _stream = StreamController<Map>.broadcast();
 
   void _dispose() {
     _stream.sink.close();
